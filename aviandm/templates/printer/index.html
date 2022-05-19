@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h3>{% block title %}Принтеры и МФУ{% endblock %}</h3>
+{% endblock %}
+
+{% block menu %}
+    <div class="menu">
+        <a href='#'>pc</a>
+        <a href='#'>print</a>
+        <a href='#'>schedule</a>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <table class="u-full-witdh">
+      <thead>
+        <tr>
+          <th>Модель</th>
+          <th>Картридж</th>
+          <th>Где установлен</th>
+          <th>Дата ввода</th>
+          {# -- if user is logged in #}
+          {% if g.user %}
+              <th></th>
+          {% endif %}
+        </tr>
+      </thead>
+      <tbody>
+      {% for printer in printers %}
+        <tr>
+          <td>{{ printer['model'] }}</td>
+          <td>{{ printer['cartridge'] }}</td>
+          <td>{{ printer['location'] }}</td>
+          <td>{{ printer['install_date'] }}</td>
+          <td>
+          {% if g.user %}
+            <a class="action" href="{{ url_for('printer.update', id=printer['id']) }}">Изменить</a>
+          {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% if g.user %}
+      <a class="action" href="{{ url_for('printer.add') }}">Добавить</a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <div class="container">
+      <h2>Портал ИВЦ</h2>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+      <div class="one-half column" style="margin-top: 25%">
+        <h5>Перейти в раздел:</h5>
+        <ul>
+          <li><a href="#">Копьютеры</a></li>
+          <li><a href="{{ url_for('printer.index') }}">Принтеры/МФУ</a></li>
+          <li><a href="#">Заявки</a></li>
+          <li><a href="#">Формуляры</a></li>
+          <li><a href="#">График отпусков</a></li>
+        </ul>
+      </div>
+      <div class="one-half column" style="margin-top: 25%">
+        <h5>Системная информация</h5>
+        <p>поиграться с psutil<p>
+        <p>это может быть:</p>
+        <ul>
+          <li>если разобраться с ajax:</li>
+          <ul>
+            <li>текущие дата и время</li>
+            <li>свободная оператива</li>
+          </ul>
+          <li>свободное место на дисках:</li>
+          <ul>
+            <li>C: - 14 Гб</li>
+            <li>D: - 98 Гб</li>
+            <li>E: - 40 Гб</li>
+          </ul>
+          <li>Оперативная память - 16 Гб</li>
+          <li>Процессор - AMD Threadreaper</li>
+          <li>Видеокарта - Riva TNT 2</li>
+        </ul>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h3>{% block title %}New Printer{% endblock %}</h3>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+    <label for="model">Model</label>
+    <input type="text" name="model" id="model" value="{{ request.form['model'] }}" required>
+
+    <label for="cartridge">Cartridge</label>
+    <input type="text" name="cartridge" id="cartridge" value="{{ request.form['cartridge'] }}" required>
+
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location" value="{{ request.form['location'] }}" required>
+
+    <label for="install_date">Install Date</label>
+    <input type="text" name="install_date" id="install_date" value="{{ request.form['install_date'] }}">
+
+    <br>
+    <input type="submit" value="Подтвердить">
+  </form>
+{% endblock %}
+
+
